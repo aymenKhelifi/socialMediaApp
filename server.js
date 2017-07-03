@@ -5,6 +5,7 @@ const models = require("./models");
 const mustacheExpress = require("mustache-express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const entryRoutes = require("./routes/entryRoutes");
 
 app.engine("mustache", mustacheExpress());
 app.set("views", "./views");
@@ -22,9 +23,28 @@ app.use(
     }
   })
 );
+app.use("/", entryRoutes);
+
+// var newUser = models.user.build({
+//   name: "Radical Man!!",
+//   email: "Tommy@gmail.com",
+//   password: "12345",
+//   username: "tomyKisd324"
+// });
+// newUser.save().then(function(savedUser) {
+//   console.log(savedUser);
+// });
+
+
 
 app.get("/", function(req, res) {
   res.render("index");
+});
+
+app.get("/users", function(req, res) {
+  models.user.findAll().then(function(foundUsers) {
+    res.send(foundUsers);
+  });
 });
 
 app.listen(port, function() {

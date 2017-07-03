@@ -1,13 +1,16 @@
-'use strict';
+"use strict";
 module.exports = function(sequelize, DataTypes) {
-  var post = sequelize.define('post', {
-    post: DataTypes.TEXT
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  var post = sequelize.define(
+    "post",
+    {
+      post: DataTypes.TEXT
+    },
+    {}
+  );
+
+  post.associate = function(models) {
+    post.hasMany(models.like, { as: "like", foreignKey: "postid" });
+    post.belongsTo(models.user, {as: "author", foreignKey: "authorid"});
+  };
   return post;
 };
