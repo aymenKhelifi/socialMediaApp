@@ -26,31 +26,25 @@ app.use(
   })
 );
 
-
 app.use("/", entryRoutes);
 app.use("/users", userRoutes);
-app.use("/signup", authRoutes);
+app.use("/auth", authRoutes);
 
-
-
-var newUser = models.user.build({
-  name: "Pants",
-  email: "Tommy@gmail.com",
-  password: "12345",
-  username: "tomyKisd324"
-});
-newUser.save().then(function(savedUser) {
-  console.log(savedUser);
-});
-
-
-
-// app.get("/users", function(req, res) {
-//   models.user.findAll().then(function(foundUsers) {
-//     res.send(foundUsers);
-//   });
-// });
 
 app.listen(port, function() {
   console.log(`Server is running on port ${port}.`);
 });
+
+
+// var newUser = models.user.build({
+//   name: "Pants",
+//   email: "Tommy@gmail.com",
+//   password: "12345",
+//   username: "tomyKisd324"
+// });
+// newUser.save().then(function(savedUser) {
+//   console.log(savedUser);
+// });
+
+
+
