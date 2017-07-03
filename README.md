@@ -1,0 +1,1 @@
+This is a social app built with node, express, mustache, & postgres.
