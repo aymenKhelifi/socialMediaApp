@@ -10,5 +10,11 @@ userRoutes.get("/", function(req, res) {
 });
 
 
+userRoutes.post("/", (req, res)=>{
+  var message = req.body;
+  console.log("MESSAGEGEEE:", message);
+})
+
+
 
 module.exports = userRoutes;

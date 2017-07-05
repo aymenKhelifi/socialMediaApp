@@ -29,26 +29,24 @@ app.use(
 app.use("/", entryRoutes);
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
+// app.use("/message", userRoutes);
 
-app.get("/profile", function(req,res){
-    
-})
-
+app.post("/message", function(req,res){
+  var message = req.body.message;
+  console.log("MESSAGEGEEE:", message);
+  console.log("REQ SESSION", req.session.userId);
+  var newPost = models.post
+    .build({
+      post: message,
+      // userId: req.session.userId,
+      user: req.session.user
+    })
+    .save()
+    .then(function(newMessage) {
+      res.redirect("/profile");
+    });
+});
 
 app.listen(port, function() {
   console.log(`Server is running on port ${port}.`);
 });
-
-
-// var newUser = models.user.build({
-//   name: "Pants",
-//   email: "Tommy@gmail.com",
-//   password: "12345",
-//   username: "tomyKisd324"
-// });
-// newUser.save().then(function(savedUser) {
-//   console.log(savedUser);
-// });
-
-
-
