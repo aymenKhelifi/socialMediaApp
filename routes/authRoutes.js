@@ -37,7 +37,7 @@ authRoutes.post("/login", function(req, res) {
       if (foundUser[0] !== undefined) {
         if (foundUser[0].password == loginInfo.password) {
           console.log("You Exist");
-          return res.redirect("/");
+          return res.render("profile", {user: loginInfo.username} );
         }
       }
     });

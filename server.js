@@ -30,6 +30,10 @@ app.use("/", entryRoutes);
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
 
+app.get("/profile", function(req,res){
+    
+})
+
 
 app.listen(port, function() {
   console.log(`Server is running on port ${port}.`);
