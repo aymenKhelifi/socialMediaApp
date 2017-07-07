@@ -43,15 +43,14 @@ app.post("/message", function(req,res){
     })
     .save()
     .then(function(newMessage) {
-      res.redirect("/profile");
+      res.redirect("/");
     });
 });
 
 
 
 app.post("/like", (req,res)=>{
-  //find where post id = post id and like++;
-  //user cannot like post more than once
+  console.log(":::{{{}}}}}:::",req.body)
 })
 
 app.post("/delete", (req, res)=>{

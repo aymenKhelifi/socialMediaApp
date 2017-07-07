@@ -7,7 +7,7 @@ body {
 .postWrapper {
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
+    box-shadow: 5px 5px 25px #888888;
     width:60%;
     margin:3% auto;
 }

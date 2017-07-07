@@ -16,10 +16,10 @@
         <h2>Latest Gabs</h2>
         {{#posts}}
         <div class="postWrapper">
+            <form action="/like" method="post">
             <div>{{post}}</div>
             <div>{{id}}</div>
             <div>{{createdAt}}</div>
-            <form action="/like" method="post">
                 <input type="submit" value="Like">
             </form>
             <form action="/delete" method="post">
