@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
     <h1>Home Page</h1>
     <a href="/auth/signup">Signup</a>
     <a href="/auth/login">login</a>
-    </body>
+    <div class="posts">
+        <h2>Latest Gabs</h2>
+        {{#posts}}
+        <div class="postWrapper">
+            <div>{{post}}</div>
+            <div>{{id}}</div>
+            <div>{{createdAt}}</div>
+        </div>
+        {{/posts}}
+    </div>
+</body>
+
 </html>

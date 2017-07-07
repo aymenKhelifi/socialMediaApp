@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     {}
   );
 
-  like.associate = function(models) {
-    like.belongsTo(models.post, { as: "likes", foreignKey: "postid" });
-  };
+  // like.associate = function(models) {
+  //   like.belongsTo(models.post, { as: "likes", foreignKey: "postid" });
+  // };
   return like;
 };

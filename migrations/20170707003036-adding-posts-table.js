@@ -10,10 +10,6 @@ module.exports = {
       },
       post: {
         type: Sequelize.TEXT,
-        references: {
-          model: "posts",
-          key: "id"
-        }
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +18,14 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      userId: {
+        allowNull: true,
+        type: Sequelize.TEXT
+      },
+      postId: {
+        allowNull: true,
+        type: Sequelize.INTEGER
       }
     });
   },

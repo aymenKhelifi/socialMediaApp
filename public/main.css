@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.postWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    width:60%;
+    margin:3% auto;
+}
+
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.signupForm input {
+    margin-top: 3%;
+    text-align: center;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.loginForm input {
+    margin-top: 3%;
+    text-align: center;
+}

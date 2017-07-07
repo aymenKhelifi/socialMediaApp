@@ -8,9 +8,9 @@ module.exports = function(sequelize, DataTypes) {
     {}
   );
 
-  post.associate = function(models) {
-    post.hasMany(models.like, { as: "like", foreignKey: "postid" });
-    post.belongsTo(models.user, {as: "author", foreignKey: "authorid"});
-  };
+  // post.associate = function(models) {
+  //   post.hasMany(models.like, { as: "like", foreignKey: "postid" });
+  //   post.belongsTo(models.user, {as: "author", foreignKey: "authorid"});
+  // };
   return post;
 };

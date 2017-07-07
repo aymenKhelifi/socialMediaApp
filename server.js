@@ -38,7 +38,7 @@ app.post("/message", function(req,res){
   var newPost = models.post
     .build({
       post: message,
-      // userId: req.session.userId,
+      userId: req.session.userId,
       user: req.session.user
     })
     .save()

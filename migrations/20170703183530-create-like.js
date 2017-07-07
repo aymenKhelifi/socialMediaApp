@@ -16,11 +16,7 @@ module.exports = {
         }
       },
       postid: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "posts",
-          key: "id"
-        }
+        type: Sequelize.INTEGER
       },
       like: {
         type: Sequelize.INTEGER
