@@ -1,6 +1,8 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    background: lightcyan;
+    color: lightseagreen
 }
 .postWrapper {
     display: flex;
@@ -33,3 +35,4 @@ body {
     margin-top: 3%;
     text-align: center;
 }
+

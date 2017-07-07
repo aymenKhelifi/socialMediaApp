@@ -47,6 +47,17 @@ app.post("/message", function(req,res){
     });
 });
 
+
+
+app.post("/like", (req,res)=>{
+  //find where post id = post id and like++;
+  //user cannot like post more than once
+})
+
+app.post("/delete", (req, res)=>{
+  //delete post where post id = post id
+})
+
 app.listen(port, function() {
   console.log(`Server is running on port ${port}.`);
 });

@@ -19,6 +19,12 @@
             <div>{{post}}</div>
             <div>{{id}}</div>
             <div>{{createdAt}}</div>
+            <form action="/like" method="post">
+                <input type="submit" value="Like">
+            </form>
+            <form action="/delete" method="post">
+                <input type="submit" value="Delete">
+            </form>
         </div>
         {{/posts}}
     </div>
