@@ -5,16 +5,31 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="main.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
 </head>
 
 <body>
+{{#user}}
     <h1>Hi {{user}}</h1>
-    <form action="/message" method="post">
+    <h3><a href="/gabble">home</a></h3>
+{{/user}}
+    <form action="/users/message" method="post">
         <textarea name="message">
         </textarea>
         <input type="submit" value="GAB IT">
-    </form>
+        </form>
+        <h2>Your Gabs</h2>
+        {{#userPosts}}        
+        <div class="postWrapper">
+            <div>{{post}}</div>
+            <div>Likes: {{likes.length}}</div>
+            <div>{{createdAt}}</div>
+            <form action="/users/post/delete" method="post">
+                <input type="hidden" name="postid" value="{{id}}">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+        {{/userPosts}}            
 
 
 

@@ -1,15 +1,26 @@
 "use strict";
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable("posts", {
+    return queryInterface.createTable("likes", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      post: {
-        type: Sequelize.TEXT,
+      userid: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id"
+        }
+      },
+      postid: {
+        type: Sequelize.INTEGER,
+        references:{
+          model: "posts",
+          key: "id"
+        }
       },
       createdAt: {
         allowNull: false,
@@ -18,18 +29,13 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      userId: {
-        allowNull: true,
-        type: Sequelize.TEXT
-      },
-      postId: {
-        allowNull: true,
-        type: Sequelize.INTEGER
       }
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable("posts");
+    return queryInterface.dropTable("likes");
   }
 };
+
+
+

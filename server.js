@@ -29,33 +29,8 @@ app.use(
 app.use("/", entryRoutes);
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
-// app.use("/message", userRoutes);
-
-app.post("/message", function(req,res){
-  var message = req.body.message;
-  console.log("MESSAGEGEEE:", message);
-  console.log("REQ SESSION", req.session.userId);
-  var newPost = models.post
-    .build({
-      post: message,
-      userId: req.session.userId,
-      user: req.session.user
-    })
-    .save()
-    .then(function(newMessage) {
-      res.redirect("/");
-    });
-});
 
 
-
-app.post("/like", (req,res)=>{
-  console.log(":::{{{}}}}}:::",req.body)
-})
-
-app.post("/delete", (req, res)=>{
-  //delete post where post id = post id
-})
 
 app.listen(port, function() {
   console.log(`Server is running on port ${port}.`);

@@ -3,12 +3,27 @@ const entryRoutes = express.Router();
 const models = require("../models");
 
 
-entryRoutes.get("/", function(req, res) {
+entryRoutes.get("/", (req, res)=>{
+  res.render("home");
+})
+
+entryRoutes.get("/gabble", function(req, res) {
   models.post
-    .findAll()
+    .findAll({
+      include: [
+        {
+          model: models.user,
+          as: "author"
+        },
+        {
+          model: models.like,
+          as: "likes"
+        }
+      ]
+    })
     .then(function(posts) {
-      console.log(":::::::", posts)
-      res.render("index", { posts: posts });
+      console.log("REQ SESSIONNNNNNN", posts);
+      res.render("index", { posts: posts, user: req.session });
     })
     .catch(function(err) {
       res.status(500).send(err);

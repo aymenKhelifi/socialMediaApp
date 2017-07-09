@@ -30,21 +30,14 @@ authRoutes.post("/signup", function(req, res) {
 
 authRoutes.post("/login", function(req, res) {
   var loginInfo = req.body;
-  console.log(loginInfo);
-  console.log("Session Info:::::::", req.session);
   var dbUsername = models.user
     .findAll({ where: { username: loginInfo.username } })
     .then(function(foundUser) {
       if (foundUser[0] !== undefined) {
         if (foundUser[0].password == loginInfo.password) {
-          console.log("You Exist");
           req.session.user = loginInfo.username;
-          console.log(
-            "222 Session Info:::::::",
-            (req.session.userId = foundUser[0].id)
-          );
-          console.log("::::::::::::::::", req.session.userId);
-          return res.render("profile", { user: loginInfo.username });
+          req.session.userId = foundUser[0].id;
+          return res.redirect("../users/profile");
         }
       } else {
         return res.render("fail");

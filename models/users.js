@@ -12,9 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     {}
   );
 
-  // users.associate = function(models){
-  //   users.hasMany(models.post, {as: "post", foreignKey: "postid"});
-  // }
+  users.associate = function(models){
+    users.hasMany(models.post, {as: "posts", foreignKey: "authorId"});
+    users.hasMany(models.like, {as: "likes", foreignKey: "userid"})
+  }
 
   return users;
 };

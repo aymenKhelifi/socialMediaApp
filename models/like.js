@@ -1,17 +1,10 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
-  var like = sequelize.define(
-    "like",
-    {
-      userid: DataTypes.INTEGER,
-      postid: DataTypes.INTEGER,
-      like: DataTypes.INTEGER
-    },
-    {}
-  );
+  var like = sequelize.define("like", {});
 
-  // like.associate = function(models) {
-  //   like.belongsTo(models.post, { as: "likes", foreignKey: "postid" });
-  // };
+  like.associate = function(models) {
+    like.belongsTo(models.post, { as: "post", foreignKey: "postid" });
+    like.belongsTo(models.user, {as: "user", foreignKey: "userid"});
+  };
   return like;
 };

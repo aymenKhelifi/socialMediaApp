@@ -13,20 +13,31 @@
     <a href="/auth/signup">Signup</a>
     <a href="/auth/login">login</a>
     <div class="posts">
+    <div class="newGab">
+    {{#user}}
+    <form action="/users/message" method="post">
+        <textarea name="message">
+        </textarea>
+        <input type="submit" value="GAB IT">
+    </form>
+    </div>
         <h2>Latest Gabs</h2>
         {{#posts}}
         <div class="postWrapper">
-            <form action="/like" method="post">
             <div>{{post}}</div>
-            <div>{{id}}</div>
+            <div>Likes: {{likes.length}}</div>
+            <div><p>Created By: {{author.username}}</div>
             <div>{{createdAt}}</div>
-                <input type="submit" value="Like">
-            </form>
-            <form action="/delete" method="post">
-                <input type="submit" value="Delete">
+            <form action="/users/like" method="post">
+                <input type="hidden" name="postId" value="{{id}}">        
+            {{#user}}
+                <input type="hidden" name="userId" value="{{userId}}">  
+            {{/user}}          
+                <input type="submit" name="like" value="Like">
             </form>
         </div>
         {{/posts}}
+        {{/user}}
     </div>
 </body>
 
