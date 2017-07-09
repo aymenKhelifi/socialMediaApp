@@ -6,31 +6,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/main.css" rel="stylesheet">
-   <script src="https://use.fontawesome.com/1b7c902623.js"></script>
+    <script src="https://use.fontawesome.com/1b7c902623.js"></script>
 </head>
 
 <body>
     {{#user}}
     <h1 class="profileTitle">Hi {{user}}</h1>
     <h3><a class="homeIcon" href="/gabble"><i class="fa fa-home" aria-hidden="true"></i></a></h3>
-    
+
     {{/user}}
     <form action="/users/message" method="post">
         <div class="profileGab">
             <textarea class="newGab" name="message"></textarea>
-            <input type="submit" value="GAB IT">
+            <button class="gabSbmt" type="submit">
+             <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+            </button>
         </div>
     </form>
-    <h2>Your Gabs</h2>
+    <h2 class="yourGabs">Your Gabs</h2>
     {{#userPosts}}
     <div class="postWrapper">
-        <div>{{post}}</div>
-        <div>Likes: {{likes.length}}</div>
-        <div>{{createdAt}}</div>
-        <form action="/users/post/delete" method="post">
-            <input type="hidden" name="postid" value="{{id}}">
-            <input type="submit" value="Delete">
-        </form>
+        <div class="created">{{createdAt}}</div>
+        <div class="post">{{post}}</div>
+        <div class="postIcons">
+            <div class="likeIcon"><i class="fa  fa-thumbs-o-up" aria-hidden="true"></i> {{likes.length}}</div>
+            <form action="/users/post/delete" method="post">
+                <input type="hidden" name="postid" value="{{id}}">
+                <button type="submit" class="delete">
+            <i class="fa fa-trash" aria-hidden="true"></i> 
+            </button>
+            </form>
+        </div>
     </div>
     {{/userPosts}}
 
