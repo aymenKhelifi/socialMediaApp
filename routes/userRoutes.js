@@ -9,7 +9,6 @@ userRoutes.get("/", function(req, res) {
 });
 
 userRoutes.get("/profile", (req, res) => {
-  console.log("REQ SESSION", req.session);
   models.post
     .findAll({
       where: { authorId: req.session.userId },
@@ -21,9 +20,11 @@ userRoutes.get("/profile", (req, res) => {
       ]
     })
     .then(userPosts => {
-      console.log("USERPOSTSSS", userPosts);
-      console.log("USERRR", req.session);
+      if(req.session.userId !== undefined){
       res.render("profile", { userPosts: userPosts, user: req.session });
+      } else {
+        res.redirect("/");
+      }
     });
 });
 
@@ -53,7 +54,7 @@ userRoutes.post("/like", (req, res) => {
     })
     .save()
     .then(savedLike => {
-      res.redirect("/");
+      res.redirect("/gabble");
     });
 });
 
@@ -67,6 +68,13 @@ userRoutes.post("/post/delete", (req, res) => {
     });
   });
 });
+
+userRoutes.post("/logout", (req, res)=>{
+  req.session.destroy(logout=>{
+    res.redirect("/");
+  })
+  })
+
 
 
 

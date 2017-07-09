@@ -9,11 +9,12 @@
 </head>
 
 <body>
-    <h1>login</h1>
+    <h1 class="loginTitle">login</h1>
     <form class="loginForm" action="/auth/login" method="post">
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
-        <input type="submit">
+        <input type="submit" class="loginSbmt">
+        <div class="loginError">{{errorMessage}}</div>
     </form>
 
 </body>

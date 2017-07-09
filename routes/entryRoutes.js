@@ -5,6 +5,7 @@ const models = require("../models");
 
 entryRoutes.get("/", (req, res)=>{
   res.render("home");
+  console.log("REQ SESSION", req.session.userId);
 })
 
 entryRoutes.get("/gabble", function(req, res) {
@@ -22,8 +23,11 @@ entryRoutes.get("/gabble", function(req, res) {
       ]
     })
     .then(function(posts) {
-      console.log("REQ SESSIONNNNNNN", posts);
+      if(req.session.userId !== undefined){
       res.render("index", { posts: posts, user: req.session });
+      } else {
+        res.redirect("/");
+      }
     })
     .catch(function(err) {
       res.status(500).send(err);

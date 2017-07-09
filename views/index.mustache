@@ -9,23 +9,27 @@
 </head>
 
 <body>
-    <h1>Home Page</h1>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/login">login</a>
+    <h1>GABBLE</h1>
+    <a href="/users/profile">View Profile</a>
+    <form action="/users/logout" method="post">
+    <input type="submit" value="logout">
+    </form>
     <div class="posts">
     <div class="newGab">
     {{#user}}
     <form action="/users/message" method="post">
+    <div class="profileGab">
         <textarea name="message">
         </textarea>
         <input type="submit" value="GAB IT">
+        </div>
     </form>
     </div>
         <h2>Latest Gabs</h2>
         {{#posts}}
         <div class="postWrapper">
             <div>{{post}}</div>
-            <div>Likes: {{likes.length}}</div>
+            <div class="likeCount hidden">Likes: {{likes.length}}</div>
             <div><p>Created By: {{author.username}}</div>
             <div>{{createdAt}}</div>
             <form action="/users/like" method="post">
@@ -39,6 +43,8 @@
         {{/posts}}
         {{/user}}
     </div>
+
+    <script src="/main.js"></script>
 </body>
 
 </html>
