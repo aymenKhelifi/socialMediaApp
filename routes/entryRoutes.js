@@ -20,7 +20,10 @@ entryRoutes.get("/gabble", function(req, res) {
           model: models.like,
           as: "likes"
         }
-      ]
+      ],
+      order: {
+        createdAt: 'ASC'
+      }
     })
     .then(function(posts) {
       if(req.session.userId !== undefined){
