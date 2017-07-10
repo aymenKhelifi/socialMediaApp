@@ -17,10 +17,10 @@ userRoutes.get("/profile", (req, res) => {
           model: models.like,
           as: "likes"
         },
-        order: {
-        createdAt: 'ASC'
-      }
-      ]
+      ],
+       order: [
+        ['createdAt', 'ASC']
+       ]
     })
     .then(userPosts => {
       if(req.session.userId !== undefined){

@@ -21,9 +21,9 @@ entryRoutes.get("/gabble", function(req, res) {
           as: "likes"
         }
       ],
-      order: {
-        createdAt: 'ASC'
-      }
+      order: [
+        ['createdAt', 'ASC']
+      ]
     })
     .then(function(posts) {
       if(req.session.userId !== undefined){

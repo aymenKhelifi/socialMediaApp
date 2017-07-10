@@ -10,23 +10,30 @@
 </head>
 
 <body>
-    <h1>GABBLE</h1>
-    <a href="/users/profile">View Profile</a>
+    <h1 class="mainTitle">GABBLE</h1>
+    <div class="topIcons">
+    <a href="/users/profile"><i class="profileIcon fa  fa-user-circle" aria-hidden="true"></i> </a>
     <form action="/users/logout" method="post">
-    <input type="submit" value="logout">
+    <button class="logout" type="submit">
+    <i class="fa fa-eject" aria-hidden="true"></i> 
+    </div>
+    </button>
+
     </form>
     <div class="posts">
-    <div class="newGab">
+    <div>
     {{#user}}
     <form action="/users/message" method="post">
     <div class="profileGab">
-        <textarea name="message">
+        <textarea class="newGab" name="message">
         </textarea>
-        <input type="submit" value="GAB IT">
+        <button class="gabSbmt" type="submit">
+             <i class="mainSubmit fa fa-hand-scissors-o" aria-hidden="true"></i>
+            </button>
         </div>
     </form>
     </div>
-        <h2>Latest Gabs</h2>
+        <h2 class="mainSubtitle">Latest Gabs</h2>
         {{#posts}}
         <div class="postWrapper">
         <div>{{createdAt}}</div>

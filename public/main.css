@@ -255,3 +255,67 @@ body {
 .likeIcon {
   margin-top: 3%;
 }
+
+.logout {
+    background: none;
+    -webkit-appearance: none;
+    border: none;
+}
+
+.topIcons {
+    display: flex;
+    width: 3%;
+    margin: 0 auto;
+    font-size: 2rem;  
+    align-items: baseline;  
+}
+
+.profileIcon {
+    font-size: 2rem;
+    color: lightseagreen;
+    transition: all 1s;
+}
+
+.logout {
+    font-size: 2rem;
+    color: lightseagreen;
+    transition: all 1s;
+}
+
+.profileIcon:hover {
+    color: lightcoral;
+    transition: all 1s;
+}
+
+.logout:hover {
+    font-size: 2rem;
+    color: lightcoral;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+
+.mainTitle {
+    background: lightseagreen;
+    color: white;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.mainSubtitle {
+    background: lightseagreen;
+    color: white;
+    width: 40%;
+    margin: 0 auto;
+}
+
+
+.mainSubmit {
+    color: lightseagreen;
+    transition: all 1s;
+}
+
+.mainSubmit:hover {
+    color: lightgreen;
+    transition: all 1s;
+}
