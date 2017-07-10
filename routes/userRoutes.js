@@ -16,7 +16,10 @@ userRoutes.get("/profile", (req, res) => {
         {
           model: models.like,
           as: "likes"
-        }
+        },
+        order: {
+        createdAt: 'ASC'
+      }
       ]
     })
     .then(userPosts => {
