@@ -12,44 +12,47 @@
 <body>
     <h1 class="mainTitle">GABBLE</h1>
     <div class="topIcons">
-    <a href="/users/profile"><i class="profileIcon fa  fa-user-circle" aria-hidden="true"></i> </a>
-    <form action="/users/logout" method="post">
-    <button class="logout" type="submit">
+        <a href="/users/profile"><i class="profileIcon fa  fa-user-circle" aria-hidden="true"></i> </a>
+        <form action="/users/logout" method="post">
+            <button class="logout" type="submit">
     <i class="fa fa-eject" aria-hidden="true"></i> 
     </div>
     </button>
 
-    </form>
-    <div class="posts">
-    <div>
-    {{#user}}
-    <form action="/users/message" method="post">
-    <div class="profileGab">
-        <textarea class="newGab" name="message">
+        </form>
+        <div class="posts">
+            <div>
+                {{#user}}
+                <form action="/users/message" method="post">
+                    <div class="profileGab">
+                        <textarea maxlength="140" class="newGab" name="message">
         </textarea>
-        <button class="gabSbmt" type="submit">
+                        <button class="gabSbmt" type="submit">
              <i class="mainSubmit fa fa-hand-scissors-o" aria-hidden="true"></i>
             </button>
+                    </div>
+                </form>
+            </div>
+            <h2 class="mainSubtitle">Latest Gabs</h2>
+            {{#posts}}
+            <div class="postWrapper">
+                <div>{{createdAt}}</div>
+                <div class="author">{{author.username}}</div>
+                <div class="post">{{post}}</div>
+                <form action="/users/like" method="post">
+                    <input type="hidden" name="postId" value="{{id}}"> {{#user}}
+                    <input type="hidden" name="userId" value="{{userId}}"> {{/user}}
+                    <button type="submit" class="mainLike">
+                <div class="likeCount hidden"><i class=" fa fa-thumbs-o-up" aria-hidden="true"></i>
+                </div>
+                    </button>{{likes.length}}
+                </form>
+
+
+            </div>
+
         </div>
-    </form>
-    </div>
-        <h2 class="mainSubtitle">Latest Gabs</h2>
-        {{#posts}}
-        <div class="postWrapper">
-        <div>{{createdAt}}</div>
-            <div class="post">{{post}}</div>
-            <div class="likeCount hidden"><i class="fa  fa-thumbs-o-up" aria-hidden="true"></i>{{likes.length}}</div>
-            <div class="author">{{author.username}}</div>
-            <form action="/users/like" method="post">
-                <input type="hidden" name="postId" value="{{id}}">        
-            {{#user}}
-                <input type="hidden" name="userId" value="{{userId}}">  
-            {{/user}}          
-                <input type="submit" name="like" value="Like">
-            </form>
-        </div>
-        {{/posts}}
-        {{/user}}
+        {{/posts}} {{/user}}
     </div>
 
     <script src="/main.js"></script>
