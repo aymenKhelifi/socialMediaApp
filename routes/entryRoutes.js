@@ -27,6 +27,7 @@ entryRoutes.get("/gabble", function(req, res) {
     })
     .then(function(posts) {
       if(req.session.userId !== undefined){
+        console.log("POSTTSSSSS", posts[0].likes);
       res.render("index", { posts: posts, user: req.session });
       } else {
         res.redirect("/");

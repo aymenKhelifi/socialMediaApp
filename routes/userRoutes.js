@@ -23,6 +23,7 @@ userRoutes.get("/profile", (req, res) => {
        ]
     })
     .then(userPosts => {
+      console.log("USER POSTSS", userPosts);
       if(req.session.userId !== undefined){
       res.render("profile", { userPosts: userPosts, user: req.session });
       } else {
@@ -57,6 +58,7 @@ userRoutes.post("/like", (req, res) => {
     })
     .save()
     .then(savedLike => {
+      console.log(":::::::", savedLike);
       res.redirect("/gabble");
     });
 });
