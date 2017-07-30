@@ -22,6 +22,7 @@
     "host": "ec2-54-163-252-55.compute-1.amazonaws.com",
     "dialect": "postgres",
     "URI": "postgres://kobhcdnhbiacuv:5e622534fac0993328e5d7c6564bd8aaa8c8865d49ba5cd17e6dfb3a13d7bd7a@ec2-54-163-252-55.compute-1.amazonaws.com:5432/depmkdnm5o3h1l",
-    "port": "5432"
+    "port": "5432",
+    "use_env_variable": "DATABASE_URL"
   }
 }
